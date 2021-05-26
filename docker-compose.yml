@@ -1,0 +1,15 @@
+version: '3.3'
+
+services:
+  dataturks:
+    container_name: dataturks
+    image: huraydataturks
+#    build:
+#      context: .
+#      dockerfile: hope/docker/Dockerfile
+    ports:
+      - '7777:80'
+  # nginx:
+    # image: nginx
+    
+  

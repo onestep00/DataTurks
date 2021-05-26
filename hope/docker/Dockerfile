@@ -19,7 +19,7 @@ WORKDIR $BASE_DIR
 
 # Install basics
 RUN apt-get update && \
-	apt-get -y install mysql-server && \
+	apt-get -y install mariadb-server && \
 	apt-get -y install apache2 && \
 	apt-get install -y php7.0 && \
 	apt-get install -y libapache2-mod-php7.0 && \
