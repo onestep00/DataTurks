@@ -9,7 +9,29 @@ services:
 #      dockerfile: hope/docker/Dockerfile
     ports:
       - '7777:80'
-  # nginx:
-    # image: nginx
+  # db:
+  #   image: mariadb:10
+  #   ports:
+  #     - 3306:3306
+  #   volumes:
+  #     - ./db/conf.d:/etc/mysql/conf.d
+  #     - ./db/data:/var/lib/mysql
+  #     - ./db/initdb.d:/docker-entrypoint-initdb.d
+  #   env_file: .env
+  #   environment:
+  #     TZ: Asia/Seoul
+  #   networks:
+  #     - backend
+  #   restart: always
+
+  web:
+    image: nginx
+    ports:
+    - "7777:80"
+    environment:
+    - NGINX_HOST=localhost
+    - NGINX_PORT=80
     
-  
+
+networks:
+  backend:

@@ -39,16 +39,10 @@ RUN a2enmod proxy_http && \
 
 WORKDIR $BASE_DIR
 
-#init mysql DB
-COPY $LOCAL_DOCKER_DIR/mysqlInit.sql $BASE_DIR/mysqlInit.sql
-COPY $LOCAL_DOCKER_DIR/init.sh $BASE_DIR/init.sh
-RUN chmod +x ./init.sh && \
-	./init.sh
-
-
 
 #Install Node 8
-RUN apt-get -y install build-essential && \
+RUN apt-get update && apt-get clean && \
+	apt-get -y install build-essential && \
 	curl -sL https://deb.nodesource.com/setup_8.x | bash && \
 	apt-get install --yes nodejs && \
 	node -v && \
@@ -115,6 +109,12 @@ EXPOSE 80
 
 COPY $LOCAL_HOPE_DIR/target/dataturks-1.0-SNAPSHOT.jar $BASE_DIR/dataturks-1.0-SNAPSHOT.jar
 COPY $LOCAL_HOPE_DIR/onprem.yml $BASE_DIR/onprem.yml
+
+#init mysql DB
+COPY $LOCAL_DOCKER_DIR/mysqlInit.sql $BASE_DIR/mysqlInit.sql
+COPY $LOCAL_DOCKER_DIR/init.sh $BASE_DIR/init.sh
+RUN chmod +x ./init.sh && \
+	./init.sh
 
 COPY $LOCAL_DOCKER_DIR/startup.sh $BASE_DIR/startup.sh
 RUN chmod +x ./startup.sh

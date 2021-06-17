@@ -247,7 +247,7 @@ public class DataUploadHandler {
                 }
             }
             catch (Exception e) {
-                LOG.error("Error adding hit for project " + project.getName());
+                LOG.error("Error adding hit for project " + project.getName() + e);
             }
 
             if (isHitAdded) {
@@ -375,7 +375,7 @@ public class DataUploadHandler {
                 }
             }
             catch (Exception e) {
-                LOG.error("Error adding hit for project " + project.getName());
+                LOG.error("Error adding hit for project " + project.getName() + e);
             }
 
             if (isHitAdded) {
@@ -438,7 +438,7 @@ public class DataUploadHandler {
                 }
             }
             catch (Exception e) {
-                LOG.error("Error adding hit for project " + project.getName());
+                LOG.error("Error adding hit for project " + project.getName() + e);
             }
 
             if (isHitAdded) {

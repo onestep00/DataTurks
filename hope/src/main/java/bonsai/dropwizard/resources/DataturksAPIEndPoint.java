@@ -29,7 +29,7 @@ import javax.validation.constraints.NotNull;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import javax.xml.ws.WebServiceException;
+import jakarta.xml.ws.WebServiceException;
 import jakarta.*;
 import java.io.File;
 import java.io.InputStream;
